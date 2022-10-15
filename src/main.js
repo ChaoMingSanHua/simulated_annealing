@@ -1,4 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.provide("axios", app.config.globalProperties.axios)
+app.config.globalProperties.$BMapGL = window.BMapGL
+
+app.mount('#app');
